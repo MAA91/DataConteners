@@ -57,7 +57,15 @@ public:
 
 		size++;
 	}
-
+	void push_back(int Data)
+	{
+		if (Head == nullptr and Tail == nullptr) return push_front(Data);
+		Element* New = new Element(Data);
+		New->pPrev = Tail;
+		Tail->pNext = New;
+		Tail = New;
+		size++;
+	}
 
 
 	//Methods:
@@ -82,7 +90,7 @@ void main()
 	cout << "¬ведите размер списка: "; cin >> n;
 	List list;
 	for (int i = 0; i < n; i++)
-		list.push_front(rand() % 100);
+		list.push_back(rand() % 100);
 	list.print();
 	list.reverse_print();
 }
